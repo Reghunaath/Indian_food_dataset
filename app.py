@@ -21,6 +21,15 @@ def start():
           "priority": 50,
           "origin": "My Fancy App"
         }
+    elif(request.args['m']=='capture_off'):
+        myobj = {
+  "command":"sourceselect",
+   "auto": True
+    }
+    elif(request.args['m']=='capture_on'):
+        myobj = {
+  "command":"sourceselect",
+  "priority":240 }
     x = r.post(url,  json=myobj,headers = {"Authorization": "token 46a2032e-da1b-4c20-b690-27413aa43589"})
     #print(x)
     return x.json()
